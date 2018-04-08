@@ -1,0 +1,3 @@
+Travis CI est un logiciel libre d'intégration continue. Il fournit un service en ligne utilisé pour compiler, tester et déployer le code source des logiciels développés.
+[Wikipédia]
+ Dans le cadre de notre application, nous avons utilisé Travis en association avec le service d'hébergement et de versionnement du code source GitHub et l’outil d’analyse de la qualité du code Sonar. 

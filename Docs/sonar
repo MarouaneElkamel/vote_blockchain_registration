@@ -1,0 +1,11 @@
+SonarQube (précédemment Sonar2) est un logiciel libre permettant de mesurer la qualité du code source en continu.
+Il supporte plus de 25 langages dont java, et il permet essentiellement de générer un reporting sur  : 
+•	identification des duplications de code
+•	mesure du niveau de documentation
+•	respect des règles de programmation
+•	détection des bugs potentiels
+•	évaluation de la couverture de code par les tests unitaires
+•	analyse de la répartition de la complexité
+•	analyse du design et de l'architecture d'une application
+
+[Wikipédia]

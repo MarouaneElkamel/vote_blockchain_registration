@@ -1,0 +1,35 @@
+Objectif : 
+
+Nous proposons de développer une application de vote électronique décentralisée. Notre application (site web de vote en ligne) est destinée à être utilisée au sein de l’institut pour l’élection des responsables des différents départements.
+ Le protocole sous-jacent repose sur des primitives cryptographiques (dont notamment, la courbe elliptique) et sur la technologie Blockchain, offrant ainsi sécurité, transparence et décentralisation. 
+Le protocole fait intervenir :
+-	Un administrateur
+-	Un ensemble de candidats
+-	Un ensemble de votants
+Toutes ces entités font partie de la blockchain (chacun représentant un nœud), ainsi qu’un Smart Contract (englobant toute la logique métier du processus de vote) qui sera lui aussi déployé sur la blockchain. 
+
+Quelques définitions : 
+
+La blockchain est une technologie de stockage et de transmission d'informations, transparente, sécurisée, et fonctionnant sans organe central de contrôle. Techniquement, il s'agit d'une base de données distribuée dont les informations, envoyées par les utilisateurs, sont vérifiées et groupées à intervalles de temps réguliers en blocs, liés et sécurisés grâce à l'utilisation de la cryptographie, et formant ainsi une chaîne.
+
+ Les smart contrats constituent l'un des types d'usage les plus prometteurs de la blockchain. Concrètement, il s'agit de programmes autonomes qui, une fois démarrés, exécutent automatiquement des conditions définies au préalable et inscrites dans la blockchain.
+
+les courbes elliptiques (en cryptographie), sont des objets mathématiques, pouvant être utilisées pour des opérations asymétriques comme des échanges de clés sur un canal non sécurisé ou un chiffrement asymétrique. On parle alors de cryptographie sur les courbes elliptiques ou ECC. 
+[Wikipédia] 
+
+Protocole : 
+
+Notre protocole est un protocole Peer-to-peer qui fonctionne sans serveur centralisé ni autorité de confiance durant tout le processus de vote. Il comprend 5 phases :
+1-	Mise en place (Set Up) : 
+Durant cette phase, l’administrateur met en place les paramètres du protocole. Il s’agit principalement de définir les :
+-	 Primitives cryptographiques (ex : fonctions de hachage) qui seront utilisées 
+-	Timers qui assurent que le processus s’exécute automatiquement et correctement. 
+Les bulletins de vote sont également créés à ce stade du protocole. 
+2-	Enregistrement 
+Cette phase a lieu hors ligne. L'électeur se déplace à un bureau de vote pour s'inscrire. Après vérification de sa légitimité, l'électeur accède à un serveur appelé "serveur d'enregistrement" et saisit un identifiant et un mot de passe. Le serveur d'enregistrement retourne à l'électeur ses informations d’authentification. 
+3-	Vote 
+L'administrateur envoie un bulletin de vote à chaque électeur. Ce dernier choisit un candidat, chiffre son vote et le soumet. Le cryptage de tous les votes garantit la confidentialité des élections. Tous les électeurs devraient mémoriser la contre-valeur correspondant au candidat choisi (une sorte de reçu) afin de vérifier, plus tard, que son vote a été pris en compte.
+4-	Dépouillement 
+Cette phase consiste à compter le nombre de voix pour chaque candidat et publier par la suite les résultats de l’élection : opération effectuée par le Smart Contract. 
+5-	Vérification
+La phase de vérification s’articule autour de deux sous-phases: elle consiste tout d'abord dans la reconstruction (par le Smart Contract) des contre-valeurs associées au bulletin de vote et au nom du candidat. Les contre-valeurs sont publiques. Elles doivent être identiques aux reçus des électeurs. Ainsi, chaque électeur peut vérifier que son vote a été pris en compte. La deuxième sous-phase utilise la propriété d'homomorphisme des appariements pour vérifier la précision du comptage.

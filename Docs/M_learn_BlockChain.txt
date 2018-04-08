@@ -1,0 +1,4 @@
+Pour pouvoir comprendre la blocChain et la technologie derrière on a commencé par lire plusieurs articles sur la toile.
+Tout d'abord on s'est intéressé aux concepts fondamentaux de la blocChain, la structure, la cryptographie derrière et l'utilité.
+Ensuite on a vu les différents types de blocChain : public, privé et Consortium et l'utilité et les caractéristiques de chaque type.
+Puis ont étudié deux implémentations majeures la blocChain le bitcoin et l'Etherium et on a vu les différends use Case possible de la technique telle la cryptomonnaie et les DApps. 

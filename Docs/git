@@ -1,0 +1,6 @@
+Nous avons choisi comme : 
+•	 Gestionnaire de versions : Git
+C’est un système qui enregistre l'évolution d'un ensemble de fichiers au cours du temps de manière à ce qu'on puisse rappeler une version antérieure d'un fichier à tout moment et éventuellement la rectifier. Les fichiers en question peuvent relever du code source ou simplement du texte comme pour le cas de notre rapport que l’on élaboré en partant d’une version initiale pour chaque section et en l’améliorant au fur et à mesure de notre progression. Nous avons travaillé pareillement dans le développement de notre projet. 
+Git permet également de collaborer avec des développeurs sur d'autres ordinateurs, chacun d’entre pouvant extraire et envoyer les fichiers sources de et vers ce dépôt central. 
+Cette forme d’assistance s’intègre parfaitement dans le cadre de la méthodologie agile que nous avons adoptée et offre une forme d’aisance, de sécurité et de facilité dans le développement itératif et incrémental. 
+

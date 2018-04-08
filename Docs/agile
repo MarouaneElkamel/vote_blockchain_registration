@@ -1,0 +1,22 @@
+1 Méthodologie suivie
+Nous avons choisi de travailler avec la méthode SCRUM. D’après nos recherches, c’est la méthode agile la plus utilisée, la plus éprouvée, documentée et supportée parmi toutes celles existantes.
+
+1.1 La méthodologie Agile
+Le terme « agile » renvoie vers une approche particulière de gestion de projets informatiques.
+Celle-ci est définie par opposition aux approches traditionnelles prédictives et séquentielles (de type cycle en V ou en cascade).
+L’approche agile vise à réduire le cycle de vie du logiciel, c’est-à-dire à accélérer son développement en développant une version minimale, puis en intégrant les fonctionnalités une à une par un processus itératif basé sur une écoute client et sur des tests tout au long du cycle de développement. La visibilité ainsi offerte du côté du client et des développeurs est clef.
+
+1.2 L’approche Scrum
+L’approche Scrum propose de commencer par lister les exigences fonctionnelles et non fonctionnelles du client afin de produire le « Product Backlog ».
+À partir du Product Backlog seront ensuite définis les Sprints du projet. Dans chaque sprint (ou itération), l’équipe sélectionne une portion des exigences du client à réaliser. Chaque sprint inclut des travaux de conception, de spécification fonctionnelle et technique, de développement et de test. À la fin de chacune de ces itérations, le produit partiel mais utilisable est montré au client. Ce dernier peut alors se rendre compte par lui-même très tôt du travail réalisé, de l’alignement sur le besoin avant de conclure sur cette itération et de passer à la suivante.
+
+La vie d’un projet Scrum est ainsi rythmée par un ensemble de réunions clairement définies et strictement limitées dans le temps, entre l’équipe de développeurs et les parties prenantes. 
+
+Dans notre cas, un product backlog complet nous a été fourni très tôt, en début de projet. Nous avons ainsi eu largement le temps et la possibilité de nous documenter sur les outils, technologies, et théories fondamentales avant de commencer à travailler dessus. 
+
+La phase qui a suivi a constitué l’étape essentielle de notre projet, dans laquelle notre travail a été ponctué par des réunions hebdomadaires avec nos encadrants. À l’issue de chaque réunion, nous passions en revue les sprints complétés et nous définissions les prochains sprints. L’attribution des tâches et l’organisation des travaux ont été assurées durant tout le projet à travers l’outil de gestion de projet Meister Task. 
+
+
+
+
+
