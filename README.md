@@ -1,4 +1,4 @@
-# Vote
+# vote
 This application was generated using JHipster 4.14.1, you can find documentation and help at [http://www.jhipster.tech/documentation-archive/v4.14.1](http://www.jhipster.tech/documentation-archive/v4.14.1).
 
 ## Development
@@ -89,7 +89,7 @@ will generate few files:
 
 ## Building for production
 
-To optimize the Vote application for production, run:
+To optimize the vote application for production, run:
 
     ./mvnw -Pprod clean package
 
@@ -145,6 +145,9 @@ For more information refer to [Using Docker and Docker-Compose][], this page als
 
 To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
 
+## MailDev
+[MailDev][] is a simple way to test your project's generated emails during development with an easy to use web interface that runs on your machine built on top of Node.js. We use Mail Dev for registration email.
+
 [JHipster Homepage and latest documentation]: http://www.jhipster.tech
 [JHipster 4.14.1 archive]: http://www.jhipster.tech/documentation-archive/v4.14.1
 
@@ -156,6 +159,7 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 
 
 [Node.js]: https://nodejs.org/
+[MailDev]:https://github.com/djfarrelly/MailDev
 [Yarn]: https://yarnpkg.org/
 [Webpack]: https://webpack.github.io/
 [Angular CLI]: https://cli.angular.io/
