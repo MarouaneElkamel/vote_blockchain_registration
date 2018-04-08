@@ -69,16 +69,15 @@ liquibase:
 #
 # Then, modify the server.ssl properties so your "server" configuration looks like:
 #
-# server:
-#    port: 8443
-#    ssl:
-#        key-store: keystore.p12
-#        key-store-password: <your-password>
-#        key-store-type: PKCS12
-#        key-alias: Vote
-# ===================================================================
 server:
-    port: 8080
+    port: 8443
+    ssl:
+        key-store: keystore.p12
+        key-store-password: azertyuio
+        key-store-type: PKCS12
+        key-alias: vote
+# ===================================================================
+
 
 # ===================================================================
 # JHipster specific properties
