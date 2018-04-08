@@ -49,20 +49,15 @@ spring:
     thymeleaf:
         mode: XHTML
     social:
-        # see https://developers.google.com/+/web/signin/server-side-flow#step_1_create_a_client_id_and_client_secret
-        google:
-            client-id: xxx
-            client-secret: xxx
 
-        # see https://developers.facebook.com/docs/facebook-login/v2.2
         facebook:
-            client-id: xxx
-            client-secret: xxx
+            client-id: "1546755575432782"
+            client-secret: "ce2805f23826b40fd666b0c04a67becd"
 
         # see https://apps.twitter.com/app/
         twitter:
-            client-id: xxx
-            client-secret: xxx
+            client-id: 7S2twDTMHXo6PI3cR3Z6y9pqn
+            client-secret: 6ZaLEiAhLddYUg6MbpMAaTlgdk3sDNXfWV5kS6JT9lqOaMfVOp
 
         # jhipster-needle-add-social-configuration
 security:
