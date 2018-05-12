@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity VoteInfo.
+    -->
+    <changeSet id="20180512170550-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="owner_id"
+                                 baseTableName="vote_info"
+                                 constraintName="fk_vote_info_owner_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="vote_infos_id"
+                                 baseTableName="vote_info_elected"
+                                 constraintName="fk_vote_info_elected_vote_infos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vote_info"/>
+        <addForeignKeyConstraint baseColumnNames="electeds_id"
+                                 baseTableName="vote_info_elected"
+                                 constraintName="fk_vote_info_elected_electeds_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+        
+        <addForeignKeyConstraint baseColumnNames="vote_infos_id"
+                                 baseTableName="vote_info_voter"
+                                 constraintName="fk_vote_info_voter_vote_infos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vote_info"/>
+        <addForeignKeyConstraint baseColumnNames="voters_id"
+                                 baseTableName="vote_info_voter"
+                                 constraintName="fk_vote_info_voter_voters_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+        
+        <addForeignKeyConstraint baseColumnNames="allowed_to_vote_id"
+                                 baseTableName="vote_info"
+                                 constraintName="fk_vote_info_allowed_to_vote_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="allowed_to_vote"/>
+
+        <addForeignKeyConstraint baseColumnNames="not_allowed_to_vote_id"
+                                 baseTableName="vote_info"
+                                 constraintName="fk_vote_info_not_allowed_to_vote_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="not_allowed_to_vote"/>
+
+    </changeSet>
+</databaseChangeLog>

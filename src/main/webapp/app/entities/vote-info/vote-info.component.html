@@ -1,0 +1,98 @@
+<div>
+    <h2>
+        <span jhiTranslate="voteApp.voteInfo.home.title">Vote Infos</span>
+        <button class="btn btn-primary float-right jh-create-entity create-vote-info" [routerLink]="['/', { outlets: { popup: ['vote-info-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="voteApp.voteInfo.home.createLabel">
+            Create new Vote Info
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="voteInfos">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="voteApp.voteInfo.inscriptionDate">Inscription Date</span></th>
+            <th><span jhiTranslate="voteApp.voteInfo.inscriptionEndDate">Inscription End Date</span></th>
+            <th><span jhiTranslate="voteApp.voteInfo.voteDate">Vote Date</span></th>
+            <th><span jhiTranslate="voteApp.voteInfo.voteEndDate">Vote End Date</span></th>
+            <th><span jhiTranslate="voteApp.voteInfo.resultDate">Result Date</span></th>
+            <th><span jhiTranslate="voteApp.voteInfo.title">Title</span></th>
+            <th><span jhiTranslate="voteApp.voteInfo.description">Description</span></th>
+            <th><span jhiTranslate="voteApp.voteInfo.owner">Owner</span></th>
+            <th><span jhiTranslate="voteApp.voteInfo.elected">Elected</span></th>
+            <th><span jhiTranslate="voteApp.voteInfo.voter">Voter</span></th>
+            <th><span jhiTranslate="voteApp.voteInfo.allowedToVote">Allowed To Vote</span></th>
+            <th><span jhiTranslate="voteApp.voteInfo.notAllowedToVote">Not Allowed To Vote</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let voteInfo of voteInfos ;trackBy: trackId">
+                <td><a [routerLink]="['../vote-info', voteInfo.id ]">{{voteInfo.id}}</a></td>
+                <td>{{voteInfo.inscriptionDate | date:'medium'}}</td>
+                <td>{{voteInfo.inscriptionEndDate | date:'medium'}}</td>
+                <td>{{voteInfo.voteDate | date:'medium'}}</td>
+                <td>{{voteInfo.voteEndDate | date:'medium'}}</td>
+                <td>{{voteInfo.resultDate | date:'medium'}}</td>
+                <td>{{voteInfo.title}}</td>
+                <td>{{voteInfo.description}}</td>
+                <td>
+                    {{voteInfo.owner?.login}}
+                </td>
+                <td>
+                    <span *ngFor="let elected of voteInfo.electeds; let last = last">
+                            {{elected.login}}{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let voter of voteInfo.voters; let last = last">
+                            {{voter.login}}{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <div *ngIf="voteInfo.allowedToVote">
+                        <a [routerLink]="['../allowed-to-vote', voteInfo.allowedToVote?.id ]" >{{voteInfo.allowedToVote?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="voteInfo.notAllowedToVote">
+                        <a [routerLink]="['../not-allowed-to-vote', voteInfo.notAllowedToVote?.id ]" >{{voteInfo.notAllowedToVote?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../vote-info', voteInfo.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'vote-info/'+ voteInfo.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'vote-info/'+ voteInfo.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+
+{
+    "voteApp": {
+        "allowedToVote" : {
+            "home": {
+                "title": "Allowed To Votes",
+                "createLabel": "Create a new Allowed To Vote",
+                "createOrEditLabel": "Create or edit a Allowed To Vote"
+            },
+            "created": "A new Allowed To Vote is created with identifier {{ param }}",
+            "updated": "A Allowed To Vote is updated with identifier {{ param }}",
+            "deleted": "A Allowed To Vote is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Allowed To Vote {{ id }}?"
+            },
+            "detail": {
+                "title": "Allowed To Vote"
+            },
+            "voters": "Voters"
+        }
+    }
+}

@@ -1,0 +1,109 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myVoteInfoLabel" jhiTranslate="voteApp.voteInfo.home.createOrEditLabel">Create or edit a Vote Info</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!voteInfo.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="voteInfo.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="voteApp.voteInfo.inscriptionDate" for="field_inscriptionDate">Inscription Date</label>
+            <div class="d-flex">
+                <input id="field_inscriptionDate" type="datetime-local" class="form-control" name="inscriptionDate" [(ngModel)]="voteInfo.inscriptionDate"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="voteApp.voteInfo.inscriptionEndDate" for="field_inscriptionEndDate">Inscription End Date</label>
+            <div class="d-flex">
+                <input id="field_inscriptionEndDate" type="datetime-local" class="form-control" name="inscriptionEndDate" [(ngModel)]="voteInfo.inscriptionEndDate"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="voteApp.voteInfo.voteDate" for="field_voteDate">Vote Date</label>
+            <div class="d-flex">
+                <input id="field_voteDate" type="datetime-local" class="form-control" name="voteDate" [(ngModel)]="voteInfo.voteDate"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="voteApp.voteInfo.voteEndDate" for="field_voteEndDate">Vote End Date</label>
+            <div class="d-flex">
+                <input id="field_voteEndDate" type="datetime-local" class="form-control" name="voteEndDate" [(ngModel)]="voteInfo.voteEndDate"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="voteApp.voteInfo.resultDate" for="field_resultDate">Result Date</label>
+            <div class="d-flex">
+                <input id="field_resultDate" type="datetime-local" class="form-control" name="resultDate" [(ngModel)]="voteInfo.resultDate"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="voteApp.voteInfo.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                [(ngModel)]="voteInfo.title" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="voteApp.voteInfo.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                [(ngModel)]="voteInfo.description" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="voteApp.voteInfo.owner" for="field_owner">Owner</label>
+            <select class="form-control" id="field_owner" name="owner" [(ngModel)]="voteInfo.owner"  required>
+                <option *ngIf="!editForm.value.owner" [ngValue]="null" selected></option>
+                <option [ngValue]="userOption.id === voteInfo.owner?.id ? voteInfo.owner : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.owner?.dirty && editForm.controls.owner?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.owner?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="voteApp.voteInfo.elected" for="field_elected">Elected</label>
+            <select class="form-control" id="field_elected" multiple name="elected" [(ngModel)]="voteInfo.electeds">
+                <option [ngValue]="getSelected(voteInfo.electeds, userOption)" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="voteApp.voteInfo.voter" for="field_voter">Voter</label>
+            <select class="form-control" id="field_voter" multiple name="voter" [(ngModel)]="voteInfo.voters">
+                <option [ngValue]="getSelected(voteInfo.voters, userOption)" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="voteApp.voteInfo.allowedToVote" for="field_allowedToVote">Allowed To Vote</label>
+            <select class="form-control" id="field_allowedToVote" name="allowedToVote" [(ngModel)]="voteInfo.allowedToVote">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="allowedToVoteOption.id === voteInfo.allowedToVote?.id ? voteInfo.allowedToVote : allowedToVoteOption" *ngFor="let allowedToVoteOption of allowedtovotes; trackBy: trackAllowedToVoteById">{{allowedToVoteOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="voteApp.voteInfo.notAllowedToVote" for="field_notAllowedToVote">Not Allowed To Vote</label>
+            <select class="form-control" id="field_notAllowedToVote" name="notAllowedToVote" [(ngModel)]="voteInfo.notAllowedToVote">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="notAllowedToVoteOption.id === voteInfo.notAllowedToVote?.id ? voteInfo.notAllowedToVote : notAllowedToVoteOption" *ngFor="let notAllowedToVoteOption of notallowedtovotes; trackBy: trackNotAllowedToVoteById">{{notAllowedToVoteOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

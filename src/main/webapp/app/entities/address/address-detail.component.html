@@ -1,0 +1,38 @@
+
+<div *ngIf="address">
+    <h2><span jhiTranslate="voteApp.address.detail.title">Address</span> {{address.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="voteApp.address.publicAddress">Public Address</span></dt>
+        <dd>
+            <span>{{address.publicAddress}}</span>
+        </dd>
+        <dt><span jhiTranslate="voteApp.address.votesAllowedIn">Votes Allowed In</span></dt>
+        <dd>
+            <div *ngIf="address.votesAllowedIn">
+                <a [routerLink]="['/allowed-to-vote', address.votesAllowedIn?.id]">{{address.votesAllowedIn?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="voteApp.address.votesNotAllowedIn">Votes Not Allowed In</span></dt>
+        <dd>
+            <div *ngIf="address.votesNotAllowedIn">
+                <a [routerLink]="['/not-allowed-to-vote', address.votesNotAllowedIn?.id]">{{address.votesNotAllowedIn?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'address/'+ address.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

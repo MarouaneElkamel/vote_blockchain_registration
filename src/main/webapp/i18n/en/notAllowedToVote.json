@@ -1,0 +1,22 @@
+
+{
+    "voteApp": {
+        "notAllowedToVote" : {
+            "home": {
+                "title": "Not Allowed To Votes",
+                "createLabel": "Create a new Not Allowed To Vote",
+                "createOrEditLabel": "Create or edit a Not Allowed To Vote"
+            },
+            "created": "A new Not Allowed To Vote is created with identifier {{ param }}",
+            "updated": "A Not Allowed To Vote is updated with identifier {{ param }}",
+            "deleted": "A Not Allowed To Vote is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Not Allowed To Vote {{ id }}?"
+            },
+            "detail": {
+                "title": "Not Allowed To Vote"
+            },
+            "voters": "Voters"
+        }
+    }
+}

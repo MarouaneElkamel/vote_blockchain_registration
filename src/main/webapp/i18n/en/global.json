@@ -8,6 +8,10 @@
             "entities": {
                 "main": "Entities",
                 "vote": "Vote",
+                "address": "Address",
+                "allowedToVote": "Allowed To Vote",
+                "notAllowedToVote": "Not Allowed To Vote",
+                "voteInfo": "Vote Info",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
