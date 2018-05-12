@@ -1,0 +1,44 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAddressLabel" jhiTranslate="voteApp.address.home.createOrEditLabel">Create or edit a Address</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!address.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="address.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="voteApp.address.publicAddress" for="field_publicAddress">Public Address</label>
+            <input type="text" class="form-control" name="publicAddress" id="field_publicAddress"
+                [(ngModel)]="address.publicAddress" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="voteApp.address.votesAllowedIn" for="field_votesAllowedIn">Votes Allowed In</label>
+            <select class="form-control" id="field_votesAllowedIn" name="votesAllowedIn" [(ngModel)]="address.votesAllowedIn" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="allowedToVoteOption.id === address.votesAllowedIn?.id ? address.votesAllowedIn : allowedToVoteOption" *ngFor="let allowedToVoteOption of allowedtovotes; trackBy: trackAllowedToVoteById">{{allowedToVoteOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="voteApp.address.votesNotAllowedIn" for="field_votesNotAllowedIn">Votes Not Allowed In</label>
+            <select class="form-control" id="field_votesNotAllowedIn" name="votesNotAllowedIn" [(ngModel)]="address.votesNotAllowedIn" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="notAllowedToVoteOption.id === address.votesNotAllowedIn?.id ? address.votesNotAllowedIn : notAllowedToVoteOption" *ngFor="let notAllowedToVoteOption of notallowedtovotes; trackBy: trackNotAllowedToVoteById">{{notAllowedToVoteOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

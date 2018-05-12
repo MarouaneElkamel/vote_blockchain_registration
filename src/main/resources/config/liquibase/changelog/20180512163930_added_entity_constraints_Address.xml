@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Address.
+    -->
+    <changeSet id="20180512163930-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="votes_allowed_in_id"
+                                 baseTableName="address"
+                                 constraintName="fk_address_votes_allowed_in_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="allowed_to_vote"/>
+
+        <addForeignKeyConstraint baseColumnNames="votes_not_allowed_in_id"
+                                 baseTableName="address"
+                                 constraintName="fk_address_votes_not_allowed_in_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="not_allowed_to_vote"/>
+
+    </changeSet>
+</databaseChangeLog>
