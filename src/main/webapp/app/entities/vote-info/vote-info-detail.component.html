@@ -1,0 +1,78 @@
+
+<div *ngIf="voteInfo">
+    <h2><span jhiTranslate="voteApp.voteInfo.detail.title">Vote Info</span> {{voteInfo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="voteApp.voteInfo.inscriptionDate">Inscription Date</span></dt>
+        <dd>
+            <span>{{voteInfo.inscriptionDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="voteApp.voteInfo.inscriptionEndDate">Inscription End Date</span></dt>
+        <dd>
+            <span>{{voteInfo.inscriptionEndDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="voteApp.voteInfo.voteDate">Vote Date</span></dt>
+        <dd>
+            <span>{{voteInfo.voteDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="voteApp.voteInfo.voteEndDate">Vote End Date</span></dt>
+        <dd>
+            <span>{{voteInfo.voteEndDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="voteApp.voteInfo.resultDate">Result Date</span></dt>
+        <dd>
+            <span>{{voteInfo.resultDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="voteApp.voteInfo.title">Title</span></dt>
+        <dd>
+            <span>{{voteInfo.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="voteApp.voteInfo.description">Description</span></dt>
+        <dd>
+            <span>{{voteInfo.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="voteApp.voteInfo.owner">Owner</span></dt>
+        <dd>
+            {{voteInfo.owner?.login}}
+        </dd>
+        <dt><span jhiTranslate="voteApp.voteInfo.elected">Elected</span></dt>
+        <dd>
+            <span *ngFor="let elected of voteInfo.electeds; let last = last">
+                {{elected.login}}{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span jhiTranslate="voteApp.voteInfo.voter">Voter</span></dt>
+        <dd>
+            <span *ngFor="let voter of voteInfo.voters; let last = last">
+                {{voter.login}}{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span jhiTranslate="voteApp.voteInfo.allowedToVote">Allowed To Vote</span></dt>
+        <dd>
+            <div *ngIf="voteInfo.allowedToVote">
+                <a [routerLink]="['/allowed-to-vote', voteInfo.allowedToVote?.id]">{{voteInfo.allowedToVote?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="voteApp.voteInfo.notAllowedToVote">Not Allowed To Vote</span></dt>
+        <dd>
+            <div *ngIf="voteInfo.notAllowedToVote">
+                <a [routerLink]="['/not-allowed-to-vote', voteInfo.notAllowedToVote?.id]">{{voteInfo.notAllowedToVote?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'vote-info/'+ voteInfo.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

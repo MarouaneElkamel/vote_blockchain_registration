@@ -1,0 +1,33 @@
+
+{
+    "voteApp": {
+        "voteInfo" : {
+            "home": {
+                "title": "Vote Infos",
+                "createLabel": "Create a new Vote Info",
+                "createOrEditLabel": "Create or edit a Vote Info"
+            },
+            "created": "A new Vote Info is created with identifier {{ param }}",
+            "updated": "A Vote Info is updated with identifier {{ param }}",
+            "deleted": "A Vote Info is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Vote Info {{ id }}?"
+            },
+            "detail": {
+                "title": "Vote Info"
+            },
+            "inscriptionDate": "Inscription Date",
+            "inscriptionEndDate": "Inscription End Date",
+            "voteDate": "Vote Date",
+            "voteEndDate": "Vote End Date",
+            "resultDate": "Result Date",
+            "title": "Title",
+            "description": "Description",
+            "owner": "Owner",
+            "elected": "Elected",
+            "voter": "Voter",
+            "allowedToVote": "Allowed To Vote",
+            "notAllowedToVote": "Not Allowed To Vote"
+        }
+    }
+}

@@ -1,0 +1,85 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "owner",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "voteInfo"
+        },
+        {
+            "relationshipName": "elected",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "voteInfo"
+        },
+        {
+            "relationshipName": "voter",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "voteInfo"
+        },
+        {
+            "relationshipName": "allowedToVote",
+            "otherEntityName": "allowedToVote",
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": [],
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "voteInfo"
+        },
+        {
+            "relationshipName": "notAllowedToVote",
+            "otherEntityName": "notAllowedToVote",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "voteInfo"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "inscriptionDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "inscriptionEndDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "voteDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "voteEndDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "resultDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180512170550",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "vote_info",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

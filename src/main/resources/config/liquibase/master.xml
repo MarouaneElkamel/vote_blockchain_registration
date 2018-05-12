@@ -9,8 +9,10 @@
     <include file="config/liquibase/changelog/20180512163930_added_entity_Address.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180512163931_added_entity_AllowedToVote.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180512163932_added_entity_NotAllowedToVote.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180512170550_added_entity_VoteInfo.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20180408154411_added_entity_constraints_Vote.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180512163930_added_entity_constraints_Address.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180512170550_added_entity_constraints_VoteInfo.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>
