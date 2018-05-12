@@ -4,7 +4,12 @@ import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiLanguageService } from 'ng-jhipster';
 
 import { Register } from './register.service';
-import { LoginModalService, EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE } from '../../shared';
+import {
+    LoginModalService,
+    EMAIL_ALREADY_USED_TYPE,
+    LOGIN_ALREADY_USED_TYPE,
+    EMAIL_OUT_OF_THE_ORGANIZATION_TYPE
+} from '../../shared';
 
 @Component({
     selector: 'jhi-register',
@@ -18,6 +23,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     errorEmailExists: string;
     errorUserExists: string;
     registerAccount: any;
+    errorEmailNotInDomain: string;
     success: boolean;
     modalRef: NgbModalRef;
 
@@ -42,11 +48,16 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     register() {
         if (this.registerAccount.password !== this.confirmPassword) {
             this.doNotMatch = 'ERROR';
-        } else {
+        } else if (!((this.registerAccount.email as string).includes("@insat.rnu")))
+        {
+           this.errorEmailNotInDomain = 'ERROR';
+        }
+        else {
             this.doNotMatch = null;
             this.error = null;
             this.errorUserExists = null;
             this.errorEmailExists = null;
+            this.errorEmailNotInDomain = null;
             this.languageService.getCurrent().then((key) => {
                 this.registerAccount.langKey = key;
                 this.registerService.save(this.registerAccount).subscribe(() => {
@@ -66,6 +77,8 @@ export class RegisterComponent implements OnInit, AfterViewInit {
             this.errorUserExists = 'ERROR';
         } else if (response.status === 400 && response.error.type === EMAIL_ALREADY_USED_TYPE) {
             this.errorEmailExists = 'ERROR';
+        } else if (response.status === 400 && response.error.type === EMAIL_OUT_OF_THE_ORGANIZATION_TYPE){
+            this.errorEmailNotInDomain = 'ERROR';
         } else {
             this.error = 'ERROR';
         }
