@@ -10,6 +10,7 @@ import com.insat.pfa.service.UserService;
 import com.insat.pfa.service.dto.UserDTO;
 import com.insat.pfa.web.rest.errors.BadRequestAlertException;
 import com.insat.pfa.web.rest.errors.EmailAlreadyUsedException;
+import com.insat.pfa.web.rest.errors.EmailOutOfTheOrganizationException;
 import com.insat.pfa.web.rest.errors.LoginAlreadyUsedException;
 import com.insat.pfa.web.rest.util.HeaderUtil;
 import com.insat.pfa.web.rest.util.PaginationUtil;
@@ -90,22 +91,25 @@ public class UserResource {
     @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<User> createUser(@Valid @RequestBody UserDTO userDTO) throws URISyntaxException {
         log.debug("REST request to save User : {}", userDTO);
-
         if (userDTO.getId() != null) {
             throw new BadRequestAlertException("A new user cannot already have an ID", "userManagement", "idexists");
             // Lowercase the user login before comparing with database
         } else if (userRepository.findOneByLogin(userDTO.getLogin().toLowerCase()).isPresent()) {
             throw new LoginAlreadyUsedException();
+        } else if (!userDTO.getEmail().toLowerCase().contains("@insat.rnu")) {
+            throw new EmailOutOfTheOrganizationException();
         } else if (userRepository.findOneByEmailIgnoreCase(userDTO.getEmail()).isPresent()) {
             throw new EmailAlreadyUsedException();
-        } else {
-            User newUser = userService.createUser(userDTO);
-            mailService.sendCreationEmail(newUser);
-            return ResponseEntity.created(new URI("/api/users/" + newUser.getLogin()))
-                .headers(HeaderUtil.createAlert( "userManagement.created", newUser.getLogin()))
-                .body(newUser);
+        }else{
+                User newUser = userService.createUser(userDTO);
+                mailService.sendCreationEmail(newUser);
+                return ResponseEntity.created(new URI("/api/users/" + newUser.getLogin()))
+                    .headers(HeaderUtil.createAlert( "userManagement.created", newUser.getLogin()))
+                    .body(newUser);
+            }
+
         }
-    }
+
 
     /**
      * PUT /users : Updates an existing User.
