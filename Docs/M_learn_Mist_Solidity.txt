@@ -1,4 +1,0 @@
-Pour s'émerger dans le développement sur le blocchain et les smart contrats on devait apprendre Mist et solidity:
-Mist : c'est un navigateur internet intégrant un valet ethereum et qui rend possible la communication avec les sites web qui utilise la blocChain a travers web3.
-Solidité : c'est le langage de référence pour développer des smart contracts pour ethereum blocChain.
-Pour pouvoir apprendre tout ca on a suivi le cour "Ethereum Blockchain Developer: Build Projects Using Solidity" sur la plateforme Udemy.
