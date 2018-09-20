@@ -1,5 +1,7 @@
-# vote
-This application was generated using JHipster 4.14.1, you can find documentation and help at [http://www.jhipster.tech/documentation-archive/v4.14.1](http://www.jhipster.tech/documentation-archive/v4.14.1).
+# vote blockchain registration
+This project aims to register participant in the vote process before moving to the actual vote on the blockchain.
+In Docs folder there is a demo video of the project as well as a detailed pdf report.
+
 
 ## Development
 
